@@ -1,0 +1,13 @@
+{
+    "id": null,
+    "title": "Example Dashboard 2",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Example Panel 2",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+      }
+    ]
+  }
+  

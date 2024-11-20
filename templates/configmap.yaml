@@ -1,0 +1,19 @@
+{{- if .Values.dashboards }}
+{{- range $index, $dashboard := .Values.dashboards }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Release.Name }}-{{ $dashboard.fileName | replace "." "-" }}
+  namespace: prom-agent
+  labels:
+    grafana_dashboard: "1"
+  annotations:
+    grafana_folder: "{{ $dashboard.folderAnnotation }}"
+data:
+  {{ $.Release.Name }}-{{ $dashboard.fileName }}: |
+    {{ .Files.Get (printf "dashboards/%s" $dashboard.fileName) | indent 4 }}
+---
+{{- end }}
+{{- else }}
+# No dashboards provided in values.yaml
+{{- end }}

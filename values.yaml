@@ -1,5 +1,1 @@
-dashboards:
-  - fileName: "dashboard1.json"
-    folderAnnotation: "team-a"
-  - fileName: "dashboard2.json"
-    folderAnnotation: "team-b"
+folder: Sterling

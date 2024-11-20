@@ -1,19 +1,12 @@
-{{- if .Values.dashboards }}
-{{- range $index, $dashboard := .Values.dashboards }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ $.Release.Name }}-{{ $dashboard.fileName | replace "." "-" }}
+  name: {{ $.Release.Name }}-grafana-dashboard
   namespace: prom-agent
   labels:
     grafana_dashboard: "1"
   annotations:
-    grafana_folder: "{{ $dashboard.folderAnnotation }}"
+    grafana_folder: "{{ $.Values.folder }}"
 data:
-  {{ $.Release.Name }}-{{ $dashboard.fileName }}: |
-    {{ .Files.Get (printf "dashboards/%s" $dashboard.fileName) | indent 4 }}
----
-{{- end }}
-{{- else }}
-# No dashboards provided in values.yaml
-{{- end }}
+  "{{ $.Release.Name }}.json": |
+{{ .Files.Get "dashboards/dashboard.json" | indent 4 }}

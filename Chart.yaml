@@ -1,4 +1,4 @@
 apiVersion: v2
 name: grafana-dashboard-chart
-description: A dynamic Helm chart for Grafana dashboards
+description: A Helm chart for Grafana dashboards
 version: 0.1.0

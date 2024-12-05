@@ -1,4 +1,4 @@
 apiVersion: v2
-name: grafana-dashboard-chart
+name: grafana-dashboard-chart-with-some-zesty-title
 description: A Helm chart for Grafana dashboards
 version: 0.1.0
